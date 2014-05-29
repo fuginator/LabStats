@@ -45,6 +45,6 @@ function machineLoad(machine) {
 			document.getElementById(o.m).innerHTML = html;
         }
     }
-    xhr.open('GET', 'http://sw.cs.wwu.edu/~fugiera/dev/machineStat.php?machine='+machine, true);
+    xhr.open('GET', 'machineStat.php?machine='+machine, true);
     xhr.send(null);
 }
