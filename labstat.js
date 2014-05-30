@@ -19,7 +19,7 @@ function checkRun() {
     allLoad();
   }
 
-  document.getElementById("count").innerHTML = countDown + " seconds to next reload.";
+  document.getElementById('countdown').innerHTML = countDown;
 }
 
 // Only run when the page first loads to initialize the environment.
@@ -80,5 +80,5 @@ function allLoad() {
     labLoad(labs[l]);
   }
   d = new Date();
-  document.getElementById("updated").innerHTML = "Last updated at " + d.toLocaleTimeString();
+  document.getElementById("updated").innerHTML = d.toLocaleTimeString();
 }
