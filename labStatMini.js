@@ -1,4 +1,14 @@
-var labs = ["CF162:0:25", "CF164:0:25", "CF414:0:20", "CF416:1:20", "CF418:1:20", "CF405:1:25", "CF404:1:6", "CF409:1:5", "Linux:1:12"];
+var labs = [
+  { name: "CF162", first: 0, last: 25 },
+  { name: "CF164", first: 0, last: 25 },
+  { name: "CF414", first: 0, last: 20 },
+  { name: "CF416", first: 1, last: 20 },
+  { name: "CF418", first: 1, last: 20 },
+  { name: "CF405", first: 1, last: 25 },
+  { name: "CF404", first: 1, last: 6 },
+  { name: "CF409", first: 1, last: 5 },
+  { name: "Linux", first: 1, last: 12 },
+]
 
 var countDown = 0;
 
@@ -15,11 +25,11 @@ function checkRun() {
 function firstLoad() {
   var template = "<table><tr>";
   for(l = 0; l < labs.length; l++) {
-    var labData = labs[l].split(":");
+    var labData = labs[l];
     template += "<td>";
-    template += "<h2 class=\"labTitle\">" + labData[0] + "</h2>";
-    for(i = labData[1]; i <= labData[2]; i++) {
-      template += "<div id=\"" + labData[0] + ((i < 10) ? "-0" + i : "-" + i) + "\">";
+    template += "<h2 class=\"labTitle\">" + labData.name + "</h2>";
+    for(i = labData.first; i <= labData.last; i++) {
+      template += "<div id=\"" + labData.name + ((i < 10) ? "-0" + i : "-" + i) + "\">";
       template += "<div class=\"Grey\">" + ((i < 10) ? "0" + i : i) + "</div></div>";
     }
     template += "</td>";
@@ -31,15 +41,15 @@ function firstLoad() {
 
 function allLoad() {
   for(l = 0; l < labs.length; l++) {
-    labData = labs[l].split(":");
-    labLoad(labData[0], labData[1], labData[2]);
+    var labData = labs[l];
+    labLoad(labData);
   }
   d = new Date();
   document.getElementById("updated").innerHTML = "Last updated at " + d.toLocaleTimeString();
 }
 
-function labLoad(lab, start, end) {
-  for(i = start; i <= end; i++) { machineLoad(lab + ((i < 10) ? "-0" + i : "-" + i)); }
+function labLoad(lab) {
+  for(i = lab.first; i <= lab.last; i++) { machineLoad(lab.name + ((i < 10) ? "-0" + i : "-" + i)); }
 }
 
 function machineLoad(machine) {
