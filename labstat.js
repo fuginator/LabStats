@@ -22,6 +22,7 @@ function checkRun() {
   document.getElementById("count").innerHTML = countDown + " seconds to next reload.";
 }
 
+// Only run when the page first loads to initialize the environment.
 function initPage() {
   var template = "<table><tr>";
   for(l = 0; l < labs.length; l++) {
@@ -39,8 +40,10 @@ function initPage() {
   setInterval(function(){checkRun()}, 1000); checkRun();
 }
 
+// Load the data for an individual machine.
 function machineLoad(machine) {
   var xhr = new XMLHttpRequest();
+
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       var o = JSON.parse(xhr.responseText);
@@ -48,10 +51,12 @@ function machineLoad(machine) {
       document.getElementById(o.m).innerHTML = html;
     }
   }
+
   xhr.open('GET', 'machineStat.php?machine='+machine, true);
   xhr.send(null);
 }
 
+// Load the data for an entire lab.
 function labLoad(lab) {
   for (var i = lab.first; i <= lab.last; i++) {
     var machine = lab.name + ((i < 10) ? "-0" : "-") + i;
@@ -59,6 +64,7 @@ function labLoad(lab) {
   }
 }
 
+// Load the data for all lab machines in the department.
 function allLoad() {
   for (var l = 0; l < labs.length; l++) {
     labLoad(labs[l]);
