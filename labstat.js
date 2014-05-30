@@ -25,16 +25,15 @@ function checkRun() {
 // Only run when the page first loads to initialize the environment.
 function initPage() {
   var template = "<table><tr>";
-  for(l = 0; l < labs.length; l++) {
-    var labData = labs[l];
+  labs.forEach(function(lab) {
     template += "<td>";
-    template += "<h2 class=\"labTitle\">" + labData.name + "</h2>";
-    for(i = labData.first; i <= labData.last; i++) {
-      template += "<div id=\"" + labData.name + ((i < 10) ? "-0" + i : "-" + i) + "\">";
+    template += "<h2 class=\"labTitle\">" + lab.name + "</h2>";
+    for(i = lab.first; i <= lab.last; i++) {
+      template += "<div id=\"" + lab.name + ((i < 10) ? "-0" + i : "-" + i) + "\">";
       template += "<div class=\"Grey\">" + ((i < 10) ? "0" + i : i) + "</div></div>";
     }
     template += "</td>";
-  }
+  });
   template += "</tr></table>";
   document.getElementById("bodyMaster").innerHTML=template;
   setInterval(function(){checkRun()}, 1000); checkRun();
