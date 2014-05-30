@@ -39,19 +39,6 @@ function firstLoad() {
   setInterval(function(){checkRun()}, 1000); checkRun();
 }
 
-function allLoad() {
-  for(l = 0; l < labs.length; l++) {
-    var labData = labs[l];
-    labLoad(labData);
-  }
-  d = new Date();
-  document.getElementById("updated").innerHTML = "Last updated at " + d.toLocaleTimeString();
-}
-
-function labLoad(lab) {
-  for(i = lab.first; i <= lab.last; i++) { machineLoad(lab.name + ((i < 10) ? "-0" + i : "-" + i)); }
-}
-
 function machineLoad(machine) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -63,4 +50,19 @@ function machineLoad(machine) {
   }
   xhr.open('GET', 'machineStat.php?machine='+machine, true);
   xhr.send(null);
+}
+
+function labLoad(lab) {
+  for (var i = lab.first; i <= lab.last; i++) {
+    var machine = lab.name + ((i < 10) ? "-0" : "-") + i;
+    machineLoad(machine);
+  }
+}
+
+function allLoad() {
+  for (var l = 0; l < labs.length; l++) {
+    labLoad(labs[l]);
+  }
+  d = new Date();
+  document.getElementById("updated").innerHTML = "Last updated at " + d.toLocaleTimeString();
 }
