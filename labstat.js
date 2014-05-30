@@ -24,18 +24,29 @@ function checkRun() {
 
 // Only run when the page first loads to initialize the environment.
 function initPage() {
-  var template = "<table><tr>";
+  var tr = document.getElementsByTagName('tr')[0];
   labs.forEach(function(lab) {
-    template += "<td>";
-    template += "<h2 class=\"labTitle\">" + lab.name + "</h2>";
+    var td = document.createElement('td');
+
+    // Create a header for each lab.
+    var h2 = document.createElement('h2');
+    h2.setAttribute('class', 'labTitle');
+    h2.innerHTML = lab.name;
+    td.appendChild(h2);
+
+    // Create a div for each machine in a given lab.
     for(i = lab.first; i <= lab.last; i++) {
-      template += "<div id=\"" + lab.name + ((i < 10) ? "-0" + i : "-" + i) + "\">";
-      template += "<div class=\"Grey\">" + ((i < 10) ? "0" + i : i) + "</div></div>";
+      var machine = ((i < 10) ? "0" : "") + i;
+      var div = document.createElement('div');
+      div.setAttribute('id', lab.name + "-" + machine);
+      div.setAttribute('class', 'Grey');
+      div.innerHTML = machine;
+      td.appendChild(div);
     }
-    template += "</td>";
+
+    // Append the new table data element to the table row.
+    tr.appendChild(td);
   });
-  template += "</tr></table>";
-  document.getElementById("bodyMaster").innerHTML=template;
   setInterval(function(){checkRun()}, 1000); checkRun();
 }
 
@@ -45,9 +56,9 @@ function machineLoad(machine) {
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
-      var o = JSON.parse(xhr.responseText);
-      var html  = "<div class=\"" + o.o + "\">" + o.m.split("-")[1];
-      document.getElementById(o.m).innerHTML = html;
+      var res = JSON.parse(xhr.responseText);
+      var div = document.getElementById(machine);
+      div.setAttribute('class', res.os);
     }
   }
 

@@ -1,5 +1,5 @@
 <?php
-print("{\"m\":\"" . $_GET["machine"] . "\",\"o\":\"" . inOS($_GET["machine"]) . "\"}");
+print("{\"os\":\"" . inOS($_GET["machine"]) . "\"}");
 
 function inOS($machine) {
 	error_reporting(E_ERROR);
