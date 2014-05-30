@@ -22,7 +22,7 @@ function checkRun() {
   document.getElementById("count").innerHTML = countDown + " seconds to next reload.";
 }
 
-function firstLoad() {
+function initPage() {
   var template = "<table><tr>";
   for(l = 0; l < labs.length; l++) {
     var labData = labs[l];
