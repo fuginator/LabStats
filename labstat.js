@@ -30,7 +30,6 @@ function initPage() {
 
     // Create a header for each lab.
     var h2 = document.createElement('h2');
-    h2.setAttribute('class', 'labTitle');
     h2.innerHTML = lab.name;
     td.appendChild(h2);
 

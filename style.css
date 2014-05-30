@@ -3,10 +3,6 @@ body {
 
 h2 {
   font-weight: 400;
-}
-
-h2.labTitle{
-  font-weight: 400;
   margin:0px;
 }
 
@@ -19,70 +15,43 @@ td {
   vertical-align: top;
 }
 
-div.Grey{
-  color: #FFFFFF;
-  background: #BBBBBB;
-  float: left;
-  margin: 1px;
-  padding: 4px;
-  font-family: monospace;
-  font-size: 180%;
-  font-weight: 800;
-}
-
 footer {
   padding: 4px;
 }
 
-div.Windows{
-  color: #FFFFFF;
-  background: #0033FF;
+div {
   float: left;
   margin: 1px;
   padding: 4px;
   font-family: monospace;
   font-size: 180%;
   font-weight: 800;
+}
+
+div.Grey{
+  color: #fff;
+  background: #bbb;
+}
+
+div.Windows{
+  color: #fff;
+  background: #03f;
 }
 
 div.Windows8{
-  color: #FFFFFF;
-  background: #6699FF;
-  float: left;
-  margin: 1px;
-  padding: 4px;
-  font-family: monospace;
-  font-size: 180%;
-  font-weight: 800;
+  color: #fff;
+  background: #69f;
 }
 
 div.Linux{
-  color: #FFFFFF;
-  background: #009900;
-  float: left;
-  margin: 1px;
-  padding: 4px;
-  font-family: monospace;
-  font-size: 180%;
-  font-weight: 800;
+  color: #fff;
+  background: #090;
 }
 
 div.Other{
-  background: #F75D59;
-  float: left;
-  margin: 1px;
-  padding: 4px;
-  font-family: monospace;
-  font-size: 180%;
-  font-weight: 800;
+  background: #f75d59;
 }
 
 div.Camera{
-  background: #F0E68C;
-  float: left;
-  margin: 1px;
-  padding: 4px;
-  font-family: monospace;
-  font-size: 180%;
-  font-weight: 800;
+  background: #f0e68C;
 }
