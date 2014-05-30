@@ -1,10 +1,6 @@
 body {
   font-family: "Karla", sans-serif; }
 
-h1 {
-  font-weight: 700; 
-}
-
 h2 {
   font-weight: 400;
 }
@@ -12,6 +8,15 @@ h2 {
 h2.labTitle{
   font-weight: 400;
   margin:0px;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  width: 11%;
+  vertical-align: top;
 }
 
 div.Grey{
@@ -86,21 +91,3 @@ div.Camera{
   font-size: 180%;
   font-weight: 800;
 }
-
-a:link {
-  color: #0000FF;
-  text-decoration:none; }
-
-a:visited {
-  color: #0000FF;
-  text-decoration: none; }
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-  background-color: #000088; }
-
-a:active {
-  color: #FF0000;
-  text-decoration: underline;
-  background-color: #880088; }

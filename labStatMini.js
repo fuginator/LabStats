@@ -7,10 +7,10 @@ function checkRun() {
 }
 
 function firstLoad() {
-    var template = "<table style='width:100%;'><tr>";
+    var template = "<table><tr>";
     for(l = 0; l < labs.length; l++) {
         var labData = labs[l].split(":");
-        template += "<td style='width:11%; vertical-align:top;'>";
+        template += "<td>";
         template += "<h2 class=\"labTitle\">" + labData[0] + "</h2>";
         for(i = labData[1]; i <= labData[2]; i++) {
             template += "<div id=\"" + labData[0] + ((i < 10) ? "-0" + i : "-" + i) + "\">";
