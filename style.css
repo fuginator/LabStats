@@ -1,0 +1,57 @@
+body {
+  font-family: "Karla", sans-serif; }
+
+h2 {
+  font-weight: 400;
+  margin:0px;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  width: 11%;
+  vertical-align: top;
+}
+
+footer {
+  padding: 4px;
+}
+
+div {
+  float: left;
+  margin: 1px;
+  padding: 4px;
+  font-family: monospace;
+  font-size: 180%;
+  font-weight: 800;
+}
+
+div.Grey{
+  color: #fff;
+  background: #bbb;
+}
+
+div.Windows{
+  color: #fff;
+  background: #03f;
+}
+
+div.Windows8{
+  color: #fff;
+  background: #69f;
+}
+
+div.Linux{
+  color: #fff;
+  background: #090;
+}
+
+div.Other{
+  background: #f75d59;
+}
+
+div.Camera{
+  background: #f0e68C;
+}
