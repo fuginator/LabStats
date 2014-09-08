@@ -8,6 +8,7 @@ var labs = [
   { name: "CF404", first: 1, last: 6 },
   { name: "CF409", first: 1, last: 5 },
   { name: "Linux", first: 1, last: 12 },
+  { name: "Research", first: 1, last: 7 },
 ]
 
 var countDown = 0;
